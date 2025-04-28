@@ -41,7 +41,7 @@ if __name__ == "__main__":
             
             driver.get("https://www.transfermarkt.com/egyptian-premier-league/gesamtspielplan/wettbewerb/EGY1?saison_id=2024&spieltagVon=1&spieltagBis=1")
             load_cookies(driver)
-            driver.get(rf"https://www.transfermarkt.com/egyptian-premier-league/gesamtspielplan/wettbewerb/EGY1?saison_id=2014&spieltagVon={i}&spieltagBis={i}")
+            driver.get(rf"https://www.transfermarkt.com/egyptian-premier-league/gesamtspielplan/wettbewerb/EGY1?saison_id={season}&spieltagVon={i}&spieltagBis={i}")
             matches_table = driver.find_element(By.XPATH, "//th[contains(text(), 'Home team')]").find_element(By.XPATH, "..").find_element(By.XPATH, "..").find_element(By.XPATH, "..")
             metadata = matches_table.find_element(By.TAG_NAME, "thead").find_elements(By.TAG_NAME, "th")
 
