@@ -9,13 +9,11 @@ import time
 from helperFunctions import remove_extra_spaces, load_cookies, save_cookies
 import pandas as pd
 
-# Example setup for Selenium WebDriver
+# setup for Selenium WebDriver
 def setup_driver():
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")  # Run in headless mode
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
-    # service = Service('path/to/chromedriver')  # Replace with the path to your chromedriver
     driver = webdriver.Chrome(options=chrome_options)
     return driver
 
@@ -29,7 +27,10 @@ data = {'match_id': [],
     'Home team': [],
     'Away team': []
 }
-# Example usage
+
+
+
+
 if __name__ == "__main__":
     driver = setup_driver()
     try:
@@ -83,7 +84,7 @@ if __name__ == "__main__":
                         data['Home team'].append(home_team)
                         data['Away team'].append(away_team)
                         data['Gameweek'].append(i)
-                        data['match_id'].append(f"{season}{c}")
+                        data['match_id'].append(f"{s}{c}")
                         c+=1    
                 
                 
@@ -92,7 +93,7 @@ if __name__ == "__main__":
                 
                 df = pd.DataFrame(data) 
                 print(df)
-                df.to_excel(f'output{s}-{s+1}.xlsx', index=False)
+                df.to_excel(f'{s}-{s+1}_result.xlsx', index=False)
     finally:
         save_cookies(driver)
         driver.quit()

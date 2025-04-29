@@ -21,5 +21,3 @@ def remove_extra_spaces(text):
 
 
 
-# def remove_parentheses(text):
-#     return 
